@@ -12,6 +12,7 @@ for row in $(echo "${MYJSONSTRING}" | jq -r '.[] | @base64'); do
       zip -r ${TEST}.zip $TEST
       sudo rm -r $TEST
       aws s3 cp --sse AES256 ${TEST}.zip  s3://github-backups/${TEST}.zip
+      rm ${TEST}.zip
     fi
    
 
