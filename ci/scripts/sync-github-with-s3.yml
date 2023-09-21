@@ -14,4 +14,5 @@ inputs:
 - name: src
 
 run:
-  path: src/ci/scripts/sync-github-with-s3.sh
+  path: src/ci/scripts
+  args: ["./sync-github-with-s3.sh"]
