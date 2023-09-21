@@ -6,14 +6,14 @@ for row in $(echo "${MYJSONSTRING}" | jq -r '.[] | @base64'); do
     }
     UPLOAD_DATE=$(_jq '.updatedAt')
     if [[ "${TWO_DAYS_AGO}" < "${UPLOAD_DATE}" ]];
-    then 
+    then
       TEST=$(_jq '.name')
       git clone https://github.com/cloud-gov/$TEST
       zip -r ${TEST}.zip $TEST
       sudo rm -r $TEST
       aws s3 cp --sse AES256 ${TEST}.zip  s3://github-backups/${TEST}.zip
-      rm ${TEST}.zip
+      #rm ${TEST}.zip
     fi
-   
+
 
 done
