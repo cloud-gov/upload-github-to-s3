@@ -12,6 +12,7 @@ image_resource:
 
 inputs:
 - name: src
+- name: gh-release
 
 run:
   path: src/ci/scripts/sync-github-with-s3.sh
