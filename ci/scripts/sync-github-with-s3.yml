@@ -16,3 +16,9 @@ inputs:
 
 run:
   path: src/ci/scripts/sync-github-with-s3.sh
+  args:
+    - -cx
+    - |
+      tar -xzf gh-release/cli-2.52.0.tar.gz
+      cd cli-2.52.0
+      make install
