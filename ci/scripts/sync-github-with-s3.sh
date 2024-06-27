@@ -1,5 +1,9 @@
 #!/bin/sh
 tar -xzf gh-release/gh_2.52.0_linux_amd64.tar.gz
+ls
+echo 1
+ls gh-release
+echo 2
 GH=gh-release/gh_2.52.0_linux_amd64/bin/gh
 ls gh-release/gh_2.52.0_linux_amd64/
 ls gh-release/gh_2.52.0_linux_amd64/bin/
