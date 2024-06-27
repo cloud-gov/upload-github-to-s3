@@ -1,10 +1,7 @@
 #!/bin/sh
-ls
-ls gh-release/
-tar -xzf gh-release/cli-2.52.0.tar.gz
-cd cli-2.52.0
-make install
-MYJSONSTRING=$(gh repo list cloud-gov --json name,updatedAt --limit 500 --no-archived)
+tar -xzf gh-release/gh_2.52.0_linux_amd64.tar.gz
+GH=gh-release/gh_2.52.0_linux_amd64/bin/gh
+MYJSONSTRING=$($GH repo list cloud-gov --json name,updatedAt --limit 500 --no-archived)
 TWO_DAYS_AGO=$(date -j -v -2d +"%Y-%m-%dT%H:%M:%S%:z")
 for row in $(echo "${MYJSONSTRING}" | jq -r '.[] | @base64'); do
     _jq() {
