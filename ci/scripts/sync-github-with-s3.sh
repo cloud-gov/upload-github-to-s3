@@ -1,6 +1,6 @@
 #!/bin/sh
 ls
-;s gh-release/
+ls gh-release/
 tar -xzf gh-release/cli-2.52.0.tar.gz
 cd cli-2.52.0
 make install
