@@ -12,7 +12,7 @@ for row in $(echo "${MYJSONSTRING}" | jq -r '.[] | @base64'); do
       echo "jelly"
     }
     UPLOAD_DATE=$(_jq '.updatedAt')
-    if [[ "${TWO_DAYS_AGO}" < "${UPLOAD_DATE}" ]];
+    if [ "${TWO_DAYS_AGO}" < "${UPLOAD_DATE}" ];
     then
     echo "sandwhich"
     #   TEST=$(_jq '.name')
