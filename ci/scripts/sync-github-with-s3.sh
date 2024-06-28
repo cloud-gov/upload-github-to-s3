@@ -5,7 +5,7 @@ export GH_TOKEN=${ACCESS_TOKEN}
 MYJSONSTRING=$($GH repo list cloud-gov --json name,updatedAt --limit 500 --no-archived)
 date --help
 date --version
-TWO_DAYS_AGO=$(date -j -v -2d +"%Y-%m-%dT%H:%M:%S%:z")
+TWO_DAYS_AGO=$(-d "2 days ago"  +"%Y-%m-%dT%H:%M:%S%:z")
 for row in $(echo "${MYJSONSTRING}" | jq -r '.[] | @base64'); do
     _jq() {
       echo ${row} | base64 --decode | jq -r ${1}
