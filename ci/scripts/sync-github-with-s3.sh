@@ -3,8 +3,7 @@ tar -xzf gh-release/gh_2.52.0_linux_amd64.tar.gz
 GH=gh_2.52.0_linux_amd64/bin/gh
 export GH_TOKEN=${ACCESS_TOKEN}
 MYJSONSTRING=$($GH repo list cloud-gov --json name,updatedAt --limit 500 --no-archived)
-date --help
-date --version
+echo $MYJSONSTRING
 TWO_DAYS_AGO=$(date -d "2 days ago"  +"%Y-%m-%dT%H:%M:%S%:z")
 for row in $(echo "${MYJSONSTRING}" | jq -r '.[] | @base64'); do
     _jq() {
