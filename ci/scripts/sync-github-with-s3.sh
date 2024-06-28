@@ -11,11 +11,12 @@ for row in $(echo "${LIST_OF_REPOS}" | jq -r '.[] | @base64'); do
     LAST_UPDATE=$(_jq '.updatedAt')
     if [ "`date --date \"$TWO_DAYS_AGO\" +%s`"  -lt "`date --date \"$LAST_UPDATE\" +%s`" ];
     then
-    #   TEST=$(_jq '.name')
-    #   git clone https://github.com/cloud-gov/$TEST
-    #   zip -r ${TEST}.zip $TEST
-    #   sudo rm -r $TEST
-    #   aws s3 cp --sse AES256 ${TEST}.zip  s3://github-backups/${TEST}.zip
+      REPOSITORY=$(_jq '.name')
+      git clone https://github.com/cloud-gov/$REPOSITORY
+      zip -r ${REPOSITORY}.zip $REPOSITORY
+      sudo rm -r $REPOSITORY
+      aws s3 cp --sse AES256 ${REPOSITORY}.zip  s3://github-backups/${REPOSITORY}.zip
+      sudo rm -r ${REPOSITORY}.zip
     fi
 
 
