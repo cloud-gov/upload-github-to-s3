@@ -11,7 +11,7 @@ for row in $(echo "${MYJSONSTRING}" | jq -r '.[] | @base64'); do
       echo ${row} | base64 --decode | jq -r ${1}
     }
     UPLOAD_DATE=$(_jq '.updatedAt')
-    if [[ "`date --date \"$TWO_DAYS_AGO\" +%s`"  -lt "`date --date \"$UPLOAD_DATE\" +%s`"]]
+    if [ "`date --date \"$TWO_DAYS_AGO\" +%s`"  -lt "`date --date \"$UPLOAD_DATE\" +%s`"];
     then
     echo "sandwhich"
     #   TEST=$(_jq '.name')
