@@ -1,4 +1,5 @@
 #!/bin/sh
+apt install zip
 tar -xzf gh-release/gh_2.52.0_linux_amd64.tar.gz
 GH=gh_2.52.0_linux_amd64/bin/gh
 export GH_TOKEN=${ACCESS_TOKEN}
