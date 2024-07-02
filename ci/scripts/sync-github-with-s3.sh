@@ -2,7 +2,7 @@
 tar -xzf gh-release/gh_2.52.0_linux_amd64.tar.gz
 GH=gh_2.52.0_linux_amd64/bin/gh
 export GH_TOKEN=${ACCESS_TOKEN}
-LIST_OF_REPOS=$($GH repo list cloud-gov --json name,updatedAt --limit 500 --no-archived --visibility private)
+LIST_OF_REPOS=$($GH repo list cloud-gov --json name,updatedAt --limit 500 --no-archived --visibility public)
 TWO_DAYS_AGO=$(date -d "2 days ago"  +"%Y-%m-%dT%H:%M:%S%:z")
 for row in $(echo "${LIST_OF_REPOS}" | jq -r '.[] | @base64'); do
     _jq() {
