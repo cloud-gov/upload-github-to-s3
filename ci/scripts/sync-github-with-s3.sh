@@ -15,8 +15,8 @@ for row in $(echo "${LIST_OF_REPOS}" | jq -r '.[] | @base64'); do
       REPOSITORY=$(_jq '.name')
       git clone https://github.com/cloud-gov/$REPOSITORY --quiet
       tar czf ${REPOSITORY}.tar.gz $REPOSITORY
-      sudo rm -r $REPOSITORY
+      rm -r $REPOSITORY
       aws s3 cp --sse AES256 ${REPOSITORY}.tar.gz  s3://github-backups/${REPOSITORY}.tar.gz --quiet
-      sudo rm -r ${REPOSITORY}.tar.gz
+      rm -r ${REPOSITORY}.tar.gz
     fi
 done
