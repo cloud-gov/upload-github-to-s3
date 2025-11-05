@@ -1,4 +1,5 @@
 #!/bin/sh
+
 tar -xzf gh-release/gh_2.52.0_linux_amd64.tar.gz
 GH=gh_2.52.0_linux_amd64/bin/gh
 export GH_TOKEN=${ACCESS_TOKEN}
@@ -18,6 +19,4 @@ for row in $(echo "${LIST_OF_REPOS}" | jq -r '.[] | @base64'); do
       aws s3 cp --sse AES256 ${REPOSITORY}.tar.gz  s3://github-backups/${REPOSITORY}.tar.gz --quiet
       sudo rm -r ${REPOSITORY}.tar.gz
     fi
-
-
 done
