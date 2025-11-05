@@ -64,7 +64,7 @@ resources:
   icon: github-circle
   name: src
   source:
-    branch: test
+    branch: main
     commit_verification_keys: ((cloud-gov-pgp-keys))
     uri: https://github.com/cloud-gov/upload-github-to-s3
   type: git
